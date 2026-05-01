@@ -1,0 +1,19 @@
+sections:
+  - id: package-commands
+    file: docs/operations/commands.md
+    generator: pnpm docs:commands
+    start: "<!-- GENERATED:package-commands:start -->"
+    end: "<!-- GENERATED:package-commands:end -->"
+
+  - id: public-env-vars
+    file: docs/operations/environment.md
+    generator: pnpm docs:env
+    start: "<!-- GENERATED:public-env-vars:start -->"
+    end: "<!-- GENERATED:public-env-vars:end -->"
+
+  - id: application-usecases
+    file: docs/domain/usecases.md
+    generator: pnpm docs:usecases
+    start: "<!-- GENERATED:application-usecases:start -->"
+    end: "<!-- GENERATED:application-usecases:end -->"
+

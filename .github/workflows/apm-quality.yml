@@ -1,0 +1,29 @@
+name: apm-quality
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  apm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - uses: astral-sh/setup-uv@v8
+      - name: Check local APM package shape
+        run: node scripts/apm/check-local-package.mjs
+      - name: Install APM
+        run: curl -sSL https://aka.ms/apm-unix | sh
+      - name: Validate APM compile
+        run: apm compile --target codex --validate --local-only
+      - name: APM audit
+        run: apm audit --ci
+

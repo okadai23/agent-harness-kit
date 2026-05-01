@@ -1,0 +1,18 @@
+node_modules/
+apm_modules/
+.venv/
+dist/
+build/
+coverage/
+.next/
+.harness/
+.agent-maintenance/
+AGENTS.override.md
+
+# Keep real secrets out of repositories and out of Codex context.
+.env
+.env.*
+*.pem
+id_rsa
+id_ed25519
+secrets/

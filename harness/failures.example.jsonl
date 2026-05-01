@@ -1,0 +1,3 @@
+{"ts":"2026-04-29T00:00:00Z","kind":"architecture_violation","summary":"domain imported infrastructure","files":["src/domain/example.ts"],"detected_by":"human_review","severity":"medium","fingerprint":"arch:domain-import-infrastructure","suggested_promotion":"structural_lint"}
+{"ts":"2026-04-29T00:00:00Z","kind":"unsafe_command","summary":"agent attempted rm -rf","command":"rm -rf .","detected_by":"hook","severity":"high","fingerprint":"cmd:rm-rf","suggested_promotion":"pre_tool_hook"}
+

@@ -1,0 +1,22 @@
+variables:
+  - name: NODE_ENV
+    required: false
+    default: development
+    example: development
+    description: Runtime environment.
+    secret: false
+
+  - name: PORT
+    required: false
+    default: "3000"
+    example: "3000"
+    description: HTTP server port for local prototypes.
+    secret: false
+
+  - name: DATABASE_URL
+    required: false
+    example: postgresql://user:password@localhost:5432/app
+    description: Database connection URL. Use dummy values in docs and tests.
+    secret: true
+    document_value: false
+

@@ -1,0 +1,20 @@
+name: agent-harness-kit
+version: 0.1.0
+description: Portable Codex harness with skills, review agents, hooks, docs-as-code, and failure-to-harness workflows.
+target: codex
+
+dependencies:
+  apm: []
+  mcp: []
+
+compilation:
+  output: AGENTS.md
+  resolve_links: true
+  exclude:
+    - "apm_modules/**"
+    - "node_modules/**"
+    - ".harness/**"
+    - "_references/**"
+    - "coverage/**"
+    - "dist/**"
+    - "build/**"

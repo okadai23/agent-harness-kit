@@ -1,0 +1,166 @@
+documents:
+  - path: README.md
+    type: curated
+    purpose: Project overview, setup, and main commands.
+    update_when:
+      - package.json
+      - pnpm-lock.yaml
+      - scripts/**
+      - .codex/**
+      - .agents/skills/**
+      - apm.yml
+      - .apm/**
+      - CLAUDE.md
+      - .claude/**
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/CLAUDE_CODE.md
+    type: curated
+    purpose: Claude Code native layer and maintenance workflow.
+    update_when:
+      - CLAUDE.md
+      - .claude/**
+      - scripts/claude/**
+      - .apm/**
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/APM.md
+    type: curated
+    purpose: APM package management workflow for this harness.
+    update_when:
+      - apm.yml
+      - .apm/**
+      - CLAUDE.md
+      - .claude/**
+      - scripts/apm/**
+      - .github/workflows/apm-quality.yml
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/UV.md
+    type: curated
+    purpose: uv and uvx integration for Python hooks and harness checks.
+    update_when:
+      - pyproject.toml
+      - scripts/lib/runner.mjs
+      - scripts/uv-doctor.mjs
+      - scripts/install-uv-notice.mjs
+      - package.json
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/GITHUB_REPOSITORY.md
+    type: curated
+    purpose: GitHub repository setup, naming, branch protection, and CI guidance.
+    update_when:
+      - .github/**
+      - package.json
+      - README.md
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/GITHUB_AUTOMATION.md
+    type: curated
+    purpose: GitHub Issue and Pull Request automation for agent maintenance fixes.
+    update_when:
+      - scripts/github/**
+      - .github/workflows/agent-maintenance-pr.yml
+      - .agents/skills/github-issue-pr-automation/**
+      - .codex/agents/github_maintainer.toml
+      - .claude/agents/github-maintainer.md
+      - .claude/commands/publish-agent-fix.md
+      - package.json
+    checks:
+      - links
+      - command-snippets
+
+  - path: docs/architecture/overview.md
+    type: curated
+    purpose: System structure and harness architecture.
+    update_when:
+      - AGENTS.md
+      - .codex/**
+      - .agents/skills/**
+      - harness/**
+      - scripts/check-boundaries.mjs
+    checks:
+      - links
+
+  - path: docs/behavior/karpathy-guidelines.md
+    type: curated
+    purpose: Karpathy-style behavioral coding-agent rules for assumptions, simplicity, surgical diffs, and verification.
+    update_when:
+      - AGENTS.md
+      - .agents/skills/karpathy-guidelines/**
+      - .codex/agents/vibe_reviewer.toml
+      - scripts/harness/check-diff-scope.mjs
+    checks:
+      - links
+
+  - path: docs/workflows/research-plan-execute-review-ship.md
+    type: curated
+    purpose: Standard multi-step Codex workflow with phase gates and review.
+    update_when:
+      - AGENTS.md
+      - PLANS.md
+      - code_review.md
+      - .agents/skills/research-plan-execute-review-ship/**
+      - .agents/skills/codex-task-shaping/**
+      - .codex/agents/staff_plan_reviewer.toml
+      - .codex/agents/pr_explorer.toml
+    checks:
+      - links
+
+  - path: docs/operations/commands.md
+    type: generated
+    purpose: Package script inventory.
+    generator: pnpm docs:commands
+    update_when:
+      - package.json
+    checks:
+      - generated
+
+  - path: docs/operations/environment.md
+    type: generated
+    purpose: Public environment variable inventory.
+    generator: pnpm docs:env
+    update_when:
+      - docs/_meta/public-env-vars.yaml
+      - src/infrastructure/**
+    checks:
+      - generated
+
+  - path: docs/domain/usecases.md
+    type: semi-generated
+    purpose: Application use case inventory.
+    generator: pnpm docs:usecases
+    update_when:
+      - src/application/usecases/**
+      - src/application/ports/**
+      - src/domain/**
+    checks:
+      - generated
+      - links
+
+  - path: docs/releases/changelog.md
+    type: curated
+    purpose: User-facing release history.
+    update_when:
+      - src/**
+      - tests/**
+      - docs/**
+      - package.json
+      - .codex/config.toml
+      - .codex/agents/**
+      - .agents/skills/**
+      - apm.yml
+      - .apm/**
+    checks:
+      - links
