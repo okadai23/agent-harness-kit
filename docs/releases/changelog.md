@@ -12,3 +12,4 @@
 - Added uv integration with `pyproject.toml`, uv-aware Python runner fallback, `uv:doctor`, uv docs, and uvx guidance.
 - Added GitHub repository guidance, PR template, Dependabot for actions, and script-quality CI for JS/JSON/Python/APM/Claude checks.
 - Added GitHub Issue and Pull Request automation for agent maintenance fixes, including dry-run local script, manual workflow, skill, and read-only maintainer agent.
+- Added one-shot harness adoption with `scripts/adopt-harness.mjs`, `pnpm adopt:dry`, `pnpm adopt`, and an adoption guide for installing the full kit into another repository.

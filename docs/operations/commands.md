@@ -3,6 +3,8 @@
 <!-- GENERATED:package-commands:start -->
 | Script | Command |
 | --- | --- |
+| `adopt` | `node scripts/adopt-harness.mjs --write` |
+| `adopt:dry` | `node scripts/adopt-harness.mjs` |
 | `apm:audit` | `apm audit --ci` |
 | `apm:check` | `node scripts/apm/check-local-package.mjs` |
 | `apm:compile` | `apm compile --target codex` |

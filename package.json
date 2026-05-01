@@ -13,6 +13,8 @@
     "github:report": "node scripts/github/agent-maintenance-report.mjs",
     "github:issue-pr:dry": "node scripts/github/create-issue-pr.mjs",
     "github:issue-pr": "node scripts/github/create-issue-pr.mjs --confirm",
+    "adopt:dry": "node scripts/adopt-harness.mjs",
+    "adopt": "node scripts/adopt-harness.mjs --write",
     "typecheck": "node scripts/noop-if-missing.mjs typecheck",
     "test:unit": "node scripts/noop-if-missing.mjs test:unit",
     "test:integration": "node scripts/noop-if-missing.mjs test:integration",

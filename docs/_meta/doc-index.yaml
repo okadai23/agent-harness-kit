@@ -81,6 +81,18 @@ documents:
       - links
       - command-snippets
 
+  - path: docs/ADOPTION_GUIDE.md
+    type: curated
+    purpose: One-shot adoption workflow for installing the whole harness into another repository.
+    update_when:
+      - scripts/adopt-harness.mjs
+      - package.json
+      - README.md
+      - docs/ADOPTION_GUIDE.md
+    checks:
+      - links
+      - command-snippets
+
   - path: docs/architecture/overview.md
     type: curated
     purpose: System structure and harness architecture.

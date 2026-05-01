@@ -100,6 +100,24 @@ python scripts/harness/run_rule_tests.py
 
 The standard `pnpm` scripts use Node entrypoints and work on Windows, Linux, and macOS. Shell-specific wrappers remain available as `*:ps` and `*:sh` aliases for manual use.
 
+## Full Adoption Into Another Repository
+
+To install the whole harness into another repository in one pass, run a dry run first:
+
+```bash no-run
+pnpm adopt:dry -- --target ../your-repo
+```
+
+Then copy the files:
+
+```bash no-run
+pnpm adopt -- --target ../your-repo
+```
+
+The adopter backs up existing files with `.bak` unless `--force` is supplied. If the target already has `package.json`, the harness package scripts are copied to `package.agent-harness-kit.json` so you can merge the useful scripts without losing project-specific commands.
+
+See [docs/ADOPTION_GUIDE.md](docs/ADOPTION_GUIDE.md).
+
 ## uv
 
 This harness supports Astral `uv` for Python execution. Python scripts prefer `uv run python ...` when `uv` is installed and fall back to system Python otherwise.
