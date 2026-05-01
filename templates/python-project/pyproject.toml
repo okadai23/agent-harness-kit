@@ -1,0 +1,140 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "your-project"
+version = "0.1.0"
+description = "A short description of your Python project."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [
+    { name = "Your Name", email = "you@example.com" },
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "coverage[toml]>=7.6.0",
+    "diff-cover>=9.0.0",
+    "nox>=2025.2.9",
+    "pip-audit>=2.9.0",
+    "pre-commit>=4.2.0",
+    "pyright>=1.1.402",
+    "pytest>=8.3.3",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.11.0",
+]
+docs = []
+
+[dependency-groups]
+dev = [
+    "coverage[toml]>=7.6.0",
+    "diff-cover>=9.0.0",
+    "nox>=2025.2.9",
+    "pip-audit>=2.9.0",
+    "pre-commit>=4.2.0",
+    "pyright>=1.1.402",
+    "pytest>=8.3.3",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.11.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/your_package"]
+
+[tool.ruff]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+line-length = 88
+indent-width = 4
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "D203", # Conflicts with D211.
+    "D213", # Conflicts with D212.
+    "COM812", # Conflicts with ruff format.
+]
+fixable = ["ALL"]
+unfixable = []
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = [
+    "S101", # pytest uses assert.
+    "PLR2004", # tests may use literal expected values.
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+[tool.pyright]
+include = ["src", "tests", "noxfile.py"]
+exclude = [
+    "**/__pycache__",
+    "**/node_modules",
+    ".nox",
+    ".venv",
+    "build",
+    "dist",
+    "venv",
+]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "strict"
+useLibraryCodeForTypes = true
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-v -ra --strict-markers --strict-config"
+markers = [
+    "integration: marks integration tests",
+    "slow: marks tests as slow",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["your_package"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 90
+omit = [
+    "tests/*",
+]

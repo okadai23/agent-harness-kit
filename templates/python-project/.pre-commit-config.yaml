@@ -1,0 +1,26 @@
+default_language_version:
+  python: python3.13
+
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-format
+        name: Format code with Ruff
+        entry: nox -s format_code --
+        language: system
+        types_or: [python, pyi]
+        pass_filenames: false
+
+      - id: ruff-lint
+        name: Lint with Ruff
+        entry: nox -s lint --
+        language: system
+        types_or: [python, pyi]
+        pass_filenames: false
+
+      - id: pyright
+        name: Type check with Pyright
+        entry: nox -s typecheck --
+        language: system
+        types: [python]
+        pass_filenames: false

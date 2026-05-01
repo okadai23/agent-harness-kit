@@ -59,6 +59,4 @@
 | `verify:fast:sh` | `bash scripts/verify-fast.sh` |
 | `verify:ps` | `powershell -ExecutionPolicy Bypass -File scripts/verify.ps1` |
 | `verify:sh` | `bash scripts/verify.sh` |
-| `verify:fast:ps` | `powershell -ExecutionPolicy Bypass -File scripts/verify-fast.ps1` |
-| `verify:ps` | `powershell -ExecutionPolicy Bypass -File scripts/verify.ps1` |
 <!-- GENERATED:package-commands:end -->

@@ -130,6 +130,16 @@ documents:
     checks:
       - links
 
+  - path: docs/python-project-template.md
+    type: curated
+    purpose: Copy and rename guide for the reusable Python project template.
+    update_when:
+      - templates/python-project/**
+      - docs/python-project-template.md
+    checks:
+      - links
+      - command-snippets
+
   - path: docs/operations/commands.md
     type: generated
     purpose: Package script inventory.
